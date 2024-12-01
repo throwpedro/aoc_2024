@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSolve(t *testing.T) {
 	t.Run("Test Solve part 1", func(t *testing.T) {
@@ -17,4 +19,11 @@ func TestSolve(t *testing.T) {
 			t.Errorf("got %d, want %d", gotPart2, wantPart2)
 		}
 	})
+
+}
+
+func BenchmarkSolve(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Solve("input.txt")
+	}
 }
